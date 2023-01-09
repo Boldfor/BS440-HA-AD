@@ -1,8 +1,7 @@
-# BS440  v2.0.0
-Python code to talk to Medisana BS440 bluetooth enabled bathroom scale
-User managementboy reports succes with the Medisana BS444 too.
+# BS440
+Python code to talk to Medisana BS410, BS430, BS440 and BS444 bluetooth enabled bathroom scale.
 
-# Blog info
+# Full project description:
 https://keptenkurk.wordpress.com/2016/02/07/connecting-the-medisana-bs440-bluetooth-scale/
 with a full step-by-step installation instruction on
 https://keptenkurk.wordpress.com/2017/03/05/connecting-the-medisana-bs440-bluetooth-scale-epilogue/
