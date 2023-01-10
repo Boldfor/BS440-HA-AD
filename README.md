@@ -1,6 +1,6 @@
 # BS440 - Description
 BS440 is a Python code that listens for information from a Medisana BS410/BS430/BS440/BS444
-or compatible bluetooth bathroom scale. When received via Bluetooth LE , it passes the
+or compatible bluetooth bathroom scale (BSA45 allegedly supported, but manual adjustments needed / not yet correctly implemented in code). When received via Bluetooth LE, it passes the
 information (weight, fat, bone mass, etc) over to all activated plugins for further processing.
 
 Currently supported plugins / data processors:
@@ -47,7 +47,6 @@ This file contains the general parameters for communicating with the scale (Blue
 MAC address) and which plugins to use.
 
 # Automatically start
-
 Copy the right files from the `dist/init` directory.
 
 For generic linux with SystemD support:
