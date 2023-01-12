@@ -380,7 +380,7 @@ while True:
             handle_command = device.get_handle(Char_command)
             continue_comms = True
         except pygatt.exceptions.NotConnectedError:
-            log.warn('Error getting handles')
+            log.warning('Error getting handles')
             continue_comms = False
 
         log.info('Continue Comms: ' + str(continue_comms))
