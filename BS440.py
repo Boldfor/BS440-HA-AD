@@ -191,7 +191,10 @@ def appendBmi(size, weightdata):
     '''
     size = size / 100.00
     for element in weightdata:
-        element['bmi'] = round(element['weight'] / (size * size), 1)
+        if size != 0:
+            element['bmi'] = round(element['weight'] / (size * size), 1)
+        else:
+            element['bmi'] = 0
 
 
 def processIndication(handle, values):
