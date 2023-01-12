@@ -191,6 +191,13 @@ def appendBmi(size, weightdata):
     '''
     size = size / 100.00
     for element in weightdata:
+        '''
+        Some scales (e.g. BS 444) identify the max. 8 users via a "weight approximation".
+        If a new (or guest) user stands on the scale, the scale is not able to identify the user.
+        As a result, no size for the user is stored in the scale, and thus not transmitted
+        to the script. In these situations, the script stopped (division by zero). The following
+        check aims at solving this problem (https://github.com/keptenkurk/BS440/issues/102)
+        '''
         if size != 0:
             element['bmi'] = round(element['weight'] / (size * size), 1)
         else:
