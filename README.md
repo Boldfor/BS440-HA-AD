@@ -46,20 +46,34 @@ Before using this app, rename `BS440.example.ini` to `BS440.ini` and personalize
 This file contains the general parameters for communicating with the scale (Bluetooth LE
 MAC address) and which plugins to use.
 
-# Automatically start
-Copy the right files from the `dist/init` directory.
+# Run the script at startup
+For the script to start automatically at system startup (to monitor the scale all the time)
+the script has to be started as a service.
 
-For generic linux with SystemD support:
+Open the service-file `bs440.service` located under `<...>/BS440-HA-AD/dist/init/linux-systemd/bs440.service`
+and edit/verify the `WorkingDirectory` (the absolute path where the script's files are stored), the
+python directory (usually `/usr/bin/python`) as well as the name of the script (default `BS440.py`).
 
+Copy the service-file (for generic linux with SystemD support) from
+`<...>/BS440-HA-AD/dist/init/linux-systemd/bs440.service` to `/etc/systemd/system`:
 ```bash
-cp dist/init/linux-systemd/bs440.service /etc/systemd/system/
-systemctl daemon-reload   # tell SystemD to detect new service files
-systemctl start bs440     # start the service now
-systemctl enable bs440    # start the service at boot
-journalctl -l -f -u bs440 # show + tail the logs of bs440
+cp <...>/BS440-HA-AD/dist/init/linux-systemd/bs440.service /etc/systemd/system/
 ```
 
-Attention: the systemd service file assumes you copied the contents of this repo to `/opt/BS440`
+Tell SystemD to detect new service files:
+```bash
+systemctl daemon-reload 
+```
+
+Start the service now:
+```bash
+systemctl start bs440
+```
+Set the service to start at boot:
+```bash
+systemctl enable bs440
+```
+The logs of the new bs440 service can be shown at all times via ```journalctl -l -f -u bs440```.
 
 # Plugins
 Currenly these plugins are available:
