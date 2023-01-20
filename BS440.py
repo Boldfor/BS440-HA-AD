@@ -110,7 +110,7 @@ def decodeWeight(handle, values):
     data = unpack('<BHxxIxxxxB', bytes(values[0:14]))
     retDict = {}
     retDict["valid"] = (data[0] == 0x1d)
-    # Weight is reported in g. Hence, divide by 100.0
+    # Weight is reported in 10g. Hence, divide by 100.0
     # To force results to be floats: devide by float.
     retDict["weight"] = data[1]/100.0
     retDict["timestamp"] = sanitize_timestamp(data[2])
