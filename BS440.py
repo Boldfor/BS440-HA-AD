@@ -198,10 +198,10 @@ def appendBmi(size, weightdata):
         to the script. In these situations, the script stopped (division by zero). The following
         check aims at solving this problem (https://github.com/keptenkurk/BS440/issues/102)
         '''
-        if size != 0:
-            element['bmi'] = round(element['weight'] / (size * size), 1)
-        else:
+        if size == 0:
             element['bmi'] = 0
+        else:
+            element['bmi'] = round(element['weight'] / (size * size), 1)
 
 
 def processIndication(handle, values):
