@@ -75,6 +75,10 @@ systemctl enable bs440
 ```
 The logs of the new bs440 service can be shown at all times via ```journalctl -l -f -u bs440```.
 
+If the service runs without any problem if started manually (```systemctl start bs440```) but not
+as a service during startup, check /var/log/syslog for errors. E.g. when activating the mqtt-plugin,
+other services, have to be started first. This can be achieved by setting ```After=multi-user.target```.
+
 # Plugins
 Currenly these plugins are available:
 * BS440mqtt: Send collected data via MQTT to Home Assistant, openHAB, ioBroker for excample
